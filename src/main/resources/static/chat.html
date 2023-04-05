@@ -50,9 +50,9 @@
         }
         console.log('Current user ' + userName)
 
-        var socket = io('http://localhost:35729', {
+        var socket = io('http://localhost:8080', {
             transport: ['websocket', 'pooling'],
-            path: "engine.io",
+            path: "/api/v1/private/ws/",
             // auth: {
             //     token: "abcd"
             // },
@@ -60,17 +60,6 @@
                 Authorization: "sdfsdafasdfsdf-7777-sdfsdfs-sdfsf"
             }
         });
-
-        // var socket = io('http://localhost:8080', {
-        //     transport: ['websocket', 'pooling'],
-        //     path: "/api/v1/private/ws/",
-        //     // auth: {
-        //     //     token: "abcd"
-        //     // },
-        //     extraHeaders: {
-        //         Authorization: "sdfsdafasdfsdf-7777-sdfsdfs-sdfsf"
-        //     }
-        // });
 
         socket.on('connect', function () {
             output('<span class="connect-msg">Client has connected to the server!</span>');
